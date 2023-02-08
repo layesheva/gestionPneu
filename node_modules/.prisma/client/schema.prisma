@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./gestionPneu.db"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  phone     String   @unique
+  name      String?
+  password  String
+  isDeleted Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Engin {
+  id Int @id @default(autoincrement())
+  immatriculation String
+  marque String 
+  model String
+  pneus Pneu[]
+  statut Int @default(0)
+  isDeleted Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Chauffeur {
+  id Int @id @default(autoincrement())
+  nom String
+  prenom String
+  contact String
+  adresse String
+  sorties Sortie[]
+  statut Int @default(0)
+  isDeleted Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Position {
+  id Int @id @default(autoincrement())
+  designation String
+  pneus Pneu[]
+  statut Int @default(0)
+  isDeleted Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Pneu {
+  id Int @id @default(autoincrement())
+  numero_serie String @unique
+  engin Engin?    @relation(fields: [enginId], references: [id])
+  enginId  Int?
+  designation String
+  position Position?  @relation(fields: [positionId], references: [id])
+  positionId Int?
+  date_debut DateTime @default(now())
+  sorties Sortie[]
+  etat String
+  statut Int @default(0)
+  isDeleted Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Sortie {
+  id Int @id @default(autoincrement())
+  date  DateTime @default(now())
+  pneu Pneu? @relation(fields: [pneuId], references: [id])
+  pneuId Int?
+  chauffeur Chauffeur? @relation(fields: [chauffeurId], references: [id])
+  chauffeurId Int?
+  kilometre Int
+  motif String
+  statut Int @default(0)
+  isDeleted Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+}
