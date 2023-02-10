@@ -1,15 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-import Navbar from "../componants/navbar";
-import NavFree from "./template/nav";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
-const names = ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"];
-
-export default function Home({ datas = "laye" }) {
-  console.log("donnees " + typeof datas);
+export default function Home() {
   return (
     <>
     <Head>
@@ -43,13 +35,7 @@ export default function Home({ datas = "laye" }) {
                     className="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal"
                   />
                   <div className="absolute search-icon top: 1rem; left: .8rem;">
-                    <svg
-                      className="fill-current pointer-events-none text-white w-4 h-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
-                    </svg>
+                  <i className="fa fa-search"></i>
                   </div>
                 </span>
               </div>
@@ -122,7 +108,7 @@ export default function Home({ datas = "laye" }) {
                 <div className="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
                   <ul className="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left">
                     <li className="mr-3 flex-1">
-                      <a
+                      <Link
                         href="#"
                         className="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-pink-500"
                       >
@@ -130,40 +116,40 @@ export default function Home({ datas = "laye" }) {
                         <span className="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">
                           Accueil
                         </span>
-                      </a>
+                      </Link>
                     </li>
                     <li className="mr-3 flex-1">
-                      <a
+                      <Link
                         href="#"
                         className="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500"
                       >
-                        <i className="fa-solid fa-tire pr-0 md:pr-3"></i>
+                        <i className="fa fa-circle pr-0 md:pr-3"></i>
                         <span className="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">
                           Pneu
                         </span>
-                      </a>
+                      </Link>
                     </li>
                     <li className="mr-3 flex-1">
-                      <a
+                      <Link
                         href="#"
-                        className="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-blue-600"
+                        className="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-blue-600"
                       >
-                        <i className="fas fa-chart-area pr-0 md:pr-3 text-blue-600"></i>
-                        <span className="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">
-                          Analytics
+                        <i className="fa fa-truck pr-0 md:pr-3 "></i>
+                        <span className="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">
+                          Engin
                         </span>
-                      </a>
+                      </Link>
                     </li>
                     <li className="mr-3 flex-1">
-                      <a
+                      <Link
                         href="#"
                         className="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-500"
                       >
-                        <i className="fa fa-wallet pr-0 md:pr-3"></i>
+                        <i className="fa fa-user pr-0 md:pr-3"></i>
                         <span className="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">
-                          Payments
+                          Chauffeur
                         </span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -176,7 +162,7 @@ export default function Home({ datas = "laye" }) {
               >
                 <div className="bg-gray-800 pt-3">
                   <div className="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
-                    <h1 className="font-bold pl-2">Analytics</h1>
+                    <h1 className="font-bold pl-2">Tableau de board</h1>
                   </div>
                 </div>
 
